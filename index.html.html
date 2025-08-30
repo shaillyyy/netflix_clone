@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix Clone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="nav">
+    <div class="logo">NETFLIX</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">TV Shows</a>
+      <a href="#">Movies</a>
+      <a href="#">My List</a>
+      <a href="#">Kids</a>
+    </div>
+    <div class="search">
+      <input type="text" id="searchInput" placeholder="Search titles...">
+    </div>
+    <div class="avatar"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Stranger Things</h1>
+      <p>A group of young friends witness supernatural forces and secret government exploits.</p>
+      <button class="btn" id="playHero">Play</button>
+      <button class="btn secondary">More Info</button>
+    </div>
+  </div>
+
+  <!-- Rows -->
+  <div id="rows" class="rows"></div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div id="modalBackdrop" class="modal-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Playing — Title</h2>
+        <button id="closeModal" class="btn secondary">✕</button>
+      </div>
+      <div id="player" class="player"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
