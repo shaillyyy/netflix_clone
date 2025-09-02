@@ -1,26 +1,36 @@
+// Sample Movies
 const movies = [
   {
     title: 'Stranger Things',
-    desc: 'Friends uncover mysteries in their small town.',
     img: 'https://picsum.photos/seed/1/400/600',
     video: 'https://www.youtube.com/embed/b9EkMc79ZSU'
   },
   {
     title: 'Money Heist',
-    desc: 'A criminal mastermind plans the perfect heist.',
     img: 'https://picsum.photos/seed/2/400/600',
     video: 'https://www.youtube.com/embed/_InqQJRqGW4'
   },
   {
     title: 'The Crown',
-    desc: 'The story of the British royal family.',
     img: 'https://picsum.photos/seed/3/400/600',
     video: 'https://www.youtube.com/embed/JWtnJjn6ng0'
+  },
+  {
+    title: 'Dark',
+    img: 'https://picsum.photos/seed/4/400/600',
+    video: 'https://www.youtube.com/embed/cq2iTHoLrt0'
+  },
+  {
+    title: 'Breaking Bad',
+    img: 'https://picsum.photos/seed/5/400/600',
+    video: 'https://www.youtube.com/embed/HhesaQXLuRY'
   }
 ];
 
 const categories = [
-  { name: 'Trending Now', items: movies }
+  { name: 'Trending Now', items: movies },
+  { name: 'Top Picks', items: movies },
+  { name: 'New Releases', items: movies }
 ];
 
 const rowsEl = document.getElementById('rows');
@@ -43,6 +53,19 @@ function createRow(cat) {
     cards.appendChild(c);
   });
   rowsEl.appendChild(row);
+
+  // Auto-slide effect
+  let scrollAmount = 0;
+  setInterval(() => {
+    if (cards.scrollLeft + cards.clientWidth >= cards.scrollWidth) {
+      // Reset to start
+      cards.scrollTo({ left: 0, behavior: "smooth" });
+      scrollAmount = 0;
+    } else {
+      scrollAmount += 200; // move by 200px
+      cards.scrollTo({ left: scrollAmount, behavior: "smooth" });
+    }
+  }, 3000); // every 3 sec
 }
 categories.forEach(createRow);
 
@@ -67,6 +90,7 @@ function closeModal() {
 closeModalBtn.addEventListener('click', closeModal);
 modalBackdrop.addEventListener('click', closeModal);
 
+// Play Hero Button
 document.getElementById('playHero').addEventListener('click', () => openModal(movies[0]));
 
 // Search filter
